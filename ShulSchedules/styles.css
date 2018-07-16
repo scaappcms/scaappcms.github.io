@@ -2,12 +2,9 @@ body {
     max-width: 100vw;
     background-color: lightblue;
 }
-
-
 main {
     padding: 10px 20px 30px 20px;
 }
-
 #addShulPopup {
     display: none;
     padding: 30px;
@@ -22,7 +19,6 @@ main {
     margin-top: 35px;
     margin-right: 5px;
 }
-
 .shulDiv {
     background-color: white;
     font-size: 20px;
