@@ -22,10 +22,11 @@ main {
     margin-top: 35px;
     margin-right: 5px;
 }
+
 .shulDiv {
     background-color: white;
-    text-align: center;
-    padding: 10px;
+    font-size: 20px;
+    padding: 20px;
     border-radius: 10px;
     margin: 10px;
 }
