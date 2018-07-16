@@ -1,0 +1,64 @@
+<!DOCTYPE=html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="communityHelp.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+        <script src="communityHelp.js"></script>
+    </head>
+    <body>
+        <main id="main-content"></main>
+        <button onclick="$('#addCategoryPopup').show();">Add Category</button>
+        <div id="addCategoryPopup">
+            <table>
+                <tr>
+                    <td>Category Name:</td>
+                    <td><input id="newCategoryInput" type="text"></td>
+                </tr>
+            </table>
+            <button onclick="addCategory()">Confirm</button>
+            <button onclick="$('#addHelperPopup').hide()">Cancel</button>
+        </div>
+    </body>
+    <script id="category-template" type="text/x-handlebars-template">
+        <div id="{{categoryKey}}" class="CategoryDiv">
+            <h1>{{ Title }}</h1>
+            <main id="{{categoryKey}}-helpers"></main>
+            <button onclick="addHelper('{{categoryKey}}'); loadCommunityHelpers();">Add Helper</button>
+        </div>
+    </script>
+    <script id="communityHelper-template" type="text/x-handlebars-template">
+        <div class="HelperDiv" id="{{helperID}}">
+            <div class="helper-left">
+                {{#if helper.ProfileImg}}
+                    <img src="{{helper.ProfileImg}}">
+                {{else}}
+                    <input type="file">
+                {{/if}}
+            </div>
+            
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input class="HelperInput" id="{{categoryKey}}/{{helperID}}/Name" type="text" value="{{helper.Name}}"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input class="HelperInput" id="{{categoryKey}}/{{helperID}}/Email" type="text" value="{{helper.Email}}"></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input class="HelperInput" id="{{categoryKey}}/{{helperID}}/Phone" type="text" value="{{helper.Phone}}"></td>
+                </tr>
+            </table>
+            <div class="DeleteButtonContainer">
+                <button onclick="removeHelper('{{categoryKey}}/{{helperID}}', '{{helper.Name}}')">X</button>
+            </div>
+            
+        </div>
+    </script>
+</html>
