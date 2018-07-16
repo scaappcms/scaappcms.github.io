@@ -67,6 +67,8 @@ function deleteShul(key, name) {
 }
 function updateFieldInDB() {
     const path = 'Shul-Schedules/' + $(this).attr('id');
-    console.log(path);
     database.ref(path).set($(this).val());
+}
+function goToCommunityHelp() {
+    window.location.replace('/CommunityHelp');
 }

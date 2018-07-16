@@ -1,68 +1,37 @@
-<!DOCTYPE html>
+<!DOCTYPE=html>
 <html>
     <head>
-        <title>SCA App CMS</title>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
+		<title>SCA App CMS Login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="login.css">
+		<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-        <script src="app.js"></script>
+        <script src="login.js"></script>
     </head>
     <body>
-        <header>
-            <a onclick=""><span>Tab 1</span></a>
-            <a onclick=""><span>Tab 2</span></a>
-            <a onclick=""><span>Tab 3</span></a>
-        </header>
-        <main>
-            
-        </main>
-        <button onclick="$('#addShulPopup').show();">Add Shul</button>
-        <div id="addShulPopup">
-            <table>
-                <tr>
-                    <td>Shul Name: </td>
-                    <td><input type="text" id="newShulInput"></td>
-                </tr>
-            </table>
-            <button onclick="finalizeShulAdd()">Confirm</button>
-            <button onclick"$('#addShulPopup').hide();">Cancel</button>
-        </div>
+		<div class="login-container" id="LoginView">
+			<div class="login">
+				<div class="login-screen">
+					<div class="app-title">
+						<h1>Login</h1>
+					</div>
+
+					<div class="login-form">
+						<div class="control-group">
+						<input type="text" class="login-field" value="" placeholder="email" id="login-email">
+						<label class="login-field-icon fui-user" for="login-name"></label>
+						</div>
+
+						<div class="control-group">
+						<input type="password" class="login-field" value="" placeholder="password" id="login-pass">
+						<label class="login-field-icon fui-lock" for="login-pass"></label>
+						</div>
+
+						<a class="btn btn-primary btn-large btn-block" href="#" onclick="login();">login</a>
+					</div>
+				</div>
+			</div>
+		</div>
     </body>
-
-    <script id="shulDiv-template" type="text/x-handlebars-template">
-        <div class="shulDiv">
-            <h1>{{ Name }}</h1>
-            <button onclick='deleteShul("{{ShulKey}}", "{{Name}}")'>Remove Shul</button>
-            <table class="shulTable">
-                <tr>
-                    <td>Address:</td>
-                    <td><input class="shulScheduleInput" id="{{ShulKey}}/Address" type="text" value="{{Address}}"></td>
-                </tr>
-                <tr>
-                    <td>Friday Night:</td>
-                    <td><input class="shulScheduleInput" id="{{ShulKey}}/FriNight" type="text" value="{{FriNight}}"></td>
-                </tr>
-                <tr>
-                    <td>Shabbat Morning:</td>
-                    <td><input class="shulScheduleInput" id="{{ShulKey}}/SatMorning" type="text" value="{{SatMorning}}"></td>
-                </tr>
-                <tr>
-                    <td>Shabbat Afternoon:</td>
-                    <td><input class="shulScheduleInput" id="{{ShulKey}}/SatAfternoon" type="text" value="{{SatAfternoon}}"></td>
-                </tr>
-                <tr>
-                    <td>Weekdays Morning:</td>
-                    <td><input class="shulScheduleInput" id="{{ShulKey}}/WeekMornings" type="text" value="{{WeekMornings}}"></td>
-                </tr>
-                <tr>
-                    <td>Weekdays Afternoon:</td>
-                    <td><input class="shulScheduleInput" id="{{ShulKey}}/WeekAfternoons" type="text" value="{{WeekAfternoons}}"></td>
-                </tr>
-            </table>
-        </div>
-    </script>
 </html>
-

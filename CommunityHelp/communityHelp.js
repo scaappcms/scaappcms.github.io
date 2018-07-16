@@ -58,8 +58,10 @@ function addHelper(categoryID) {
 }
 function removeHelper(path, name) {
     if (confirm("You are about to remove " + name + " from community helpers. Are you sure you want to continue?")) {
-        console.log(path);
         database.ref('CommunityHelpers/' + path).remove();
         loadCommunityHelpers();
     }
+}
+function goToShulSchedules() {
+    window.location.replace('/ShulSchedules');
 }
