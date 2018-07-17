@@ -14,7 +14,10 @@ body {
 .helper-left {
     width: 170px;
     height: 85px;
-    float: left;
+}
+.profileImg {
+    max-width: 90px;
+    height: auto;
 }
 .HelperDiv {
     margin-top: 5px;

@@ -8,6 +8,7 @@ const config = {
   };
 firebase.initializeApp(config);
 const database = firebase.database();
+document.onload = loadShulData();
 
 function finalizeShulAdd() {
     let shulName = $('#newShulInput').val();
@@ -29,9 +30,6 @@ function finalizeShulAdd() {
         alert('Please enter the shul name before continuing.');
     }
 }
-
-document.onload = loadShulData();
-
 async function loadShulData() {
     $('main').html('');
     var shulSchedules = await new Promise(function(resolve, reject) {
@@ -68,10 +66,4 @@ function deleteShul(key, name) {
 function updateFieldInDB() {
     const path = 'Shul-Schedules/' + $(this).attr('id');
     database.ref(path).set($(this).val());
-}
-function goToCommunityHelp() {
-    window.location.replace('/CommunityHelp');
-}
-function goToEventsEditor() {
-    window.location.replace('/Events');
 }

@@ -22,7 +22,6 @@ function loadCommunityHelpers() {
             for (let helperID of Object.keys(categories[categoryID])) {
                 
                 if (helperID != "Title") {
-                    console.log(helperID);
                     let helperDivTemplate = Handlebars.compile($('#communityHelper-template').html());
                     let helperDivHTML     = helperDivTemplate({categoryKey: categoryID, helperID: helperID , helper: categories[categoryID][helperID]});
                     $(`#${categoryID}-helpers`).append(helperDivHTML);
@@ -30,6 +29,7 @@ function loadCommunityHelpers() {
             }
         }
         $('.HelperInput').on('change', updateFieldInDB);
+        $('.profileImgInput').on('change', uploadImgString);
     });
 }
 
@@ -37,7 +37,25 @@ function updateFieldInDB() {
     let path = 'CommunityHelpers/' + $(this).attr('id');
     database.ref(path).set($(this).val());
 }
-
+function getBase64(file) {
+    return new Promise(function(resolve, reject) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            resolve(reader.result)
+        };
+        reader.onerror = function (error) {
+            reject(error);
+        };
+    });
+ }
+ async function uploadImgString() {
+    let path = 'CommunityHelpers/' + $(this).attr('id');
+    let imageString = await getBase64($(this).prop('files')[0]);
+    database.ref(path).set(imageString);
+    let prevImgId = "#" + $(this).attr('id') + "-prevImg";
+    $(`${prevImgId}`).attr('src', imageString);
+ }
 function addCategory() {
     let categoryName = $('#newCategoryInput').val();
     if (categoryName != "") {
@@ -61,10 +79,4 @@ function removeHelper(path, name) {
         database.ref('CommunityHelpers/' + path).remove();
         loadCommunityHelpers();
     }
-}
-function goToShulSchedules() {
-    window.location.replace('/ShulSchedules');
-}
-function goToEvents() {
-    window.location.replace('/Events');
 }

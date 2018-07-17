@@ -11,8 +11,6 @@
         <script src="communityHelp.js"></script>
     </head>
     <body>
-        <button onclick="goToShulSchedules()">Go To Shul Schedules</button>
-        <button onclick="goToEvents()">Go To Events Editor</button>
         <main id="main-content"></main>
         <button onclick="$('#addCategoryPopup').show();">Add Category</button>
         <div id="addCategoryPopup">
@@ -35,28 +33,33 @@
     </script>
     <script id="communityHelper-template" type="text/x-handlebars-template">
         <div class="HelperDiv" id="{{helperID}}">
-            <div class="helper-left">
-                {{#if helper.ProfileImg}}
-                    <img src="{{helper.ProfileImg}}">
-                {{else}}
-                    <input type="file">
-                {{/if}}
-            </div>
-            
             <table>
                 <tr>
-                    <td>Name:</td>
-                    <td><input class="HelperInput" id="{{categoryKey}}/{{helperID}}/Name" type="text" value="{{helper.Name}}"></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><input class="HelperInput" id="{{categoryKey}}/{{helperID}}/Email" type="text" value="{{helper.Email}}"></td>
-                </tr>
-                <tr>
-                    <td>Phone:</td>
-                    <td><input class="HelperInput" id="{{categoryKey}}/{{helperID}}/Phone" type="text" value="{{helper.Phone}}"></td>
+                    <td>
+                        <table>
+                            <tr><input type="file" class="profileImgInput" id="{{categoryKey}}/{{helperID}}/ProfileImg"></tr>
+                            <tr><img id="{{categoryKey}}/{{helperID}}/ProfileImg-prevImg" class="profileImg" src="{{helper.ProfileImg}}"></tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>Name:</td>
+                                <td><input class="HelperInput" id="{{categoryKey}}/{{helperID}}/Name" type="text" value="{{helper.Name}}"></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><input class="HelperInput" id="{{categoryKey}}/{{helperID}}/Email" type="text" value="{{helper.Email}}"></td>
+                            </tr>
+                            <tr>
+                                <td>Phone:</td>
+                                <td><input class="HelperInput" id="{{categoryKey}}/{{helperID}}/Phone" type="text" value="{{helper.Phone}}"></td>
+                            </tr>
+                        </table>
+                    </td>
                 </tr>
             </table>
+            
             <div class="DeleteButtonContainer">
                 <button onclick="removeHelper('{{categoryKey}}/{{helperID}}', '{{helper.Name}}')">X</button>
             </div>

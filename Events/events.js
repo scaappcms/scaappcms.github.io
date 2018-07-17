@@ -26,12 +26,6 @@ function updateFieldInDB() {
     let path = 'Events/' + $(this).attr('id');
     database.ref(path).set($(this).val());
 }
-function goToCommunityHelp() {
-    window.location.replace('/CommunityHelp');
-}
-function goToShulSchedules() {
-    window.location.replace('/ShulSchedules');
-}
 function getBase64(file) {
     return new Promise(function(resolve, reject) {
         var reader = new FileReader();
