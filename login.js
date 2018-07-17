@@ -14,7 +14,7 @@ async function login() {
     if (email != "" && password != "") {
         try {
             await firebase.auth().signInWithEmailAndPassword(email, password);
-            window.location.replace('/ShulSchedules');
+            window.location.replace('/Home');
         } catch (error) {
             alert(error.message);
         }
