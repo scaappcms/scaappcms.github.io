@@ -65,3 +65,6 @@ function removeHelper(path, name) {
 function goToShulSchedules() {
     window.location.replace('/ShulSchedules');
 }
+function goToEvents() {
+    window.location.replace('/Events');
+}

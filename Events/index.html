@@ -1,0 +1,53 @@
+<!DOCTYPE=html>
+<html>
+    <head>
+        <title>Events</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="eventStyles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+        <script src="events.js"></script>
+    </head>
+
+    <body>
+        <button onclick="goToCommunityHelp()">Go To Community Help Editor</button>
+        <button onclick="goToShulSchedules()">Go To Shul Schedules Editor</button>
+
+        <h1>Events:</h1>
+        <main>
+
+        </main>
+        <button onclick="addEvent()">Add Event</button>
+    </body>
+    <script id="event-template" type="text/x-handlebars-template">
+        <div class="event">
+            
+            
+            <table>
+                <tr>
+                    <td><input type="file" class="imageInput" id="{{EventKey}}/Image"></td>
+                    <td id="prevImgContainer"><img src="{{Image}}" id="{{EventKey}}-prevImg"class="event-preview-image"></td>
+                </tr>
+                <tr>
+                    <td>Event Title:</td>
+                    <td><input type="text" class="eventInput" id="{{EventKey}}/Title" value="{{Title}}"></td>
+                </tr>
+                <tr>
+                    <td>Event Subtitle:</td>
+                    <td><input type="text" class="eventInput" id="{{EventKey}}/Subtitle" value="{{Subtitle}}"></td>
+                </tr>
+                <tr>
+                    <td>Event Address:</td>
+                    <td><input type="text" class="eventInput" id="{{EventKey}}/Address" value="{{Address}}"></td>
+                </tr>
+                <tr>
+                    <td>Event Date:</td>
+                    <td><input type="text" class="eventInput" id="{{EventKey}}/Date" value="{{Date}}"></td>
+                </tr>
+            </table>
+            <button onclick="removeEvent('{{EventKey}}')">Remove Event</button>
+        </div>
+    </script>
+</html>

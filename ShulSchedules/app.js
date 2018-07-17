@@ -72,3 +72,6 @@ function updateFieldInDB() {
 function goToCommunityHelp() {
     window.location.replace('/CommunityHelp');
 }
+function goToEventsEditor() {
+    window.location.replace('/Events');
+}
