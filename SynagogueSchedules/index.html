@@ -14,11 +14,11 @@
         <main>
             
         </main>
-        <button onclick="$('#addShulPopup').show();">Add Shul</button>
+        <button onclick="$('#addShulPopup').show();">Add Synagogue</button>
         <div id="addShulPopup">
             <table>
                 <tr>
-                    <td>Shul Name: </td>
+                    <td>Synagogue Name: </td>
                     <td><input type="text" id="newShulInput"></td>
                 </tr>
             </table>
@@ -30,7 +30,7 @@
     <script id="shulDiv-template" type="text/x-handlebars-template">
         <div class="shulDiv">
             <h1>{{ Name }}</h1>
-            <button onclick='deleteShul("{{ShulKey}}", "{{Name}}")'>Remove Shul</button>
+            <button onclick='deleteShul("{{ShulKey}}", "{{Name}}")'>Remove Synagogue</button>
             <table class="shulTable">
                 <tr>
                     <td>Address:</td>
