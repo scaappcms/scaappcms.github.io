@@ -10,16 +10,14 @@
     </head>
     <body>
         <header>
-            <table>
-                <tr>
-                    <td><button class="opened" id="ShulSchedules" onclick="changeTo('ShulSchedules')">Synagogue Schedules</button></td>
-                    <td><button id="CommunityHelp" onclick="changeTo('CommunityHelp')">Community Help</button></td>
-                    <td><button id="Events" onclick="changeTo('Events')">Events</button></td>
-                </tr>
-            </table>
+            <button class="opened" id="ShulSchedules" onclick="changeTo('ShulSchedules')">Synagogue Schedules</button>
+            <button id="CommunityHelp" onclick="changeTo('CommunityHelp')">Community Help</button>
+            <button id="Events" onclick="changeTo('Events')">Events</button>
+            <button id="MeetARabbi" onclick="changeTo('MeetARabbi')">Meet A Rabbi</button>
         </header>
         <iframe src="/SynagogueSchedules/" id="ShulSchedules-iframe" frameborder="0"></iframe>
         <iframe src="/CommunityHelp/" id="CommunityHelp-iframe" style="display: none;" frameborder="0"></iframe>
         <iframe src="/Events/" id="Events-iframe" style="display: none;" frameborder="0"></iframe>
+        <iframe src="/MeetARabbi/" id="MeetARabbi-iframe" style="display: none;" frameborder="0"></iframe>
     </body>
 </html>

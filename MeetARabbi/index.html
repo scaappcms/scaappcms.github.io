@@ -1,0 +1,41 @@
+<!DOCTYPE=html>
+<html>
+    <head>
+        <title>SCA App CMS | Meet A Rabbi</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <main></main>
+        <button onclick="initiateAddRabbi()">Add Rabbi</button>
+        <script id="rabbi-upload-template" type="text/x-handlebars-template">
+            <div class="RabbiInfo">
+                <label>Rabbi Name: <input type="text" class="input" id="{{key}}/Name" value="{{Name}}"></input></label>
+                <div class="quad-img">
+                    <div class="quarter">
+                        <input type="file" class="img-input" id="{{key}}/Image1"></input>
+                        <img src="{{Image1}}" id="{{key}}-Image1-preview" alt="Image 1">
+                    </div>
+                    <div class="quarter">
+                        <input type="file" class="img-input" id="{{key}}/Image2"></input>
+                        <img src="{{Image2}}" id="{{key}}-Image2-preview" alt="Image 2">
+                    </div>
+                    <div class="quarter">
+                        <input type="file" class="img-input" id="{{key}}/Image3"></input>
+                        <img src="{{Image3}}" id="{{key}}-Image3-preview" alt="Image 3">
+                    </div>
+                    <div class="quarter">
+                        <input type="file" class="img-input" id="{{key}}/Image4"></input>
+                        <img src="{{Image4}}" id="{{key}}-Image4-preview" alt="Image 4">
+                    </div>
+                </div>
+                <button onclick="removeRabbi('{{key}}')">Remove Rabbi</button>
+            </div>
+        </script>
+    </body>
+</html>
